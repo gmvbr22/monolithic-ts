@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es2018",
-        "rootDir": ".",
+        "rootDir": "./src",
         "outDir": "build"
     },
     "include": [
