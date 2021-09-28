@@ -19,3 +19,5 @@ export interface Secret {
      */
     compare(password: string, hash: string): Promise<boolean>
 }
+
+export const SecretSymbol = Symbol.for('Secret')
