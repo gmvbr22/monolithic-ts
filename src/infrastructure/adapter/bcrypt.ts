@@ -6,7 +6,7 @@ import { injectable } from 'inversify'
  * Adapter: Bcrypt
  * Implementa: application/services/secret
  */
- @injectable()
+@injectable()
 export class BcryptAdapter implements Secret {
   private saltOrRounds: string | number
 

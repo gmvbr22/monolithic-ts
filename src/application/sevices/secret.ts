@@ -4,20 +4,20 @@
  */
 export interface Secret {
 
-    /**
-     * Gera o hash
-     *
-     * @param password Senha
-     */
-    hash(password: string): Promise<string>
+  /**
+   * Gera o hash
+   *
+   * @param password Senha
+   */
+  hash(password: string): Promise<string>
 
-    /**
-     * Compara a senha com o hash
-     *
-     * @param password Senha
-     * @param hash Hash gerado por hash()
-     */
-    compare(password: string, hash: string): Promise<boolean>
+  /**
+   * Compara a senha com o hash
+   *
+   * @param password Senha
+   * @param hash Hash gerado por hash()
+   */
+  compare(password: string, hash: string): Promise<boolean>
 }
 
 export const SecretSymbol = Symbol.for('Secret')
