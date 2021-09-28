@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "tsc -p tsconfig-build.json",
+    "lint": "eslint",
+    "fix": "eslint --fix"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,15 @@
   "bugs": {
     "url": "https://github.com/gmvbr/monolithic-ts/issues"
   },
-  "homepage": "https://github.com/gmvbr/monolithic-ts#readme"
+  "homepage": "https://github.com/gmvbr/monolithic-ts#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "typescript": "^4.4.3"
+  }
 }
