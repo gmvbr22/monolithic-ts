@@ -3,7 +3,11 @@
         "module": "commonjs",
         "target": "es2018",
         "rootDir": "./src",
-        "outDir": "build"
+        "outDir": "build",
+        "types": ["reflect-metadata"],
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": [
         "src/**/*.ts",
