@@ -1,3 +1,3 @@
-export interface TokenValidation<T> {
- validate(token: string): Promise<T|undefined>
+export interface TokenValidation {
+ validate<T>(token: string): Promise<T|undefined>
 }
