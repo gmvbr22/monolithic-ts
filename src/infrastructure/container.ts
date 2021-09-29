@@ -1,10 +1,12 @@
-import { BcryptAdapter } from './adapter'
-import { JWTAdapter } from './adapter/jwt-token'
+import { BcryptAdapter, JWTAdapter } from './adapter'
+import { Config } from './config'
 
 /**
- * Injeção de dependências
+ * Inicio da infrastructure
  */
 export async function initContainer () {
-  const bcryptAdapter = new BcryptAdapter(11)
-  const jwtAdapter = new JWTAdapter()
+  const config = new Config()
+
+  const bcryptAdapter = new BcryptAdapter(config.passwordRounds)
+  const jwtAdapter = new JWTAdapter(config.tokenSecret, config.tokenExpire)
 }
