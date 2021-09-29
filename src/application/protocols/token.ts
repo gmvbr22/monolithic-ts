@@ -4,5 +4,5 @@ export interface TokenResult {
 }
 
 export interface Token {
- create(payload: any): Promise<TokenResult>
+ create(payload: Object): Promise<TokenResult>
 }
