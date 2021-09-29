@@ -1,11 +1,9 @@
-import { injectable } from 'inversify'
 import { compareSync, hashSync } from 'bcrypt'
 import { HashComparator, Hasher } from '../../application'
 
 /**
  * Adapter: Bcrypt
  */
-@injectable()
 export class BcryptAdapter implements Hasher, HashComparator {
   private saltOrRounds: string | number
 
