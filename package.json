@@ -2,9 +2,9 @@
   "name": "monolithic-ts",
   "version": "1.0.0",
   "private": true,
-  "main": "build/app.js",
+  "main": "build/main.js",
   "scripts": {
-    "run": "node build/app.js",
+    "run": "node build/main.js",
     "test": "jest --coverage",
     "build": "tsc -p tsconfig-build.json",
     "lint": "eslint",
