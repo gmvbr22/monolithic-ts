@@ -1,13 +1,12 @@
-import { Secret } from '../../application'
-import { compareSync, hashSync } from 'bcrypt'
 import { injectable } from 'inversify'
+import { compareSync, hashSync } from 'bcrypt'
+import { HashComparator, Hasher } from '../../application'
 
 /**
  * Adapter: Bcrypt
- * Implementa: application/services/secret
  */
 @injectable()
-export class BcryptAdapter implements Secret {
+export class BcryptAdapter implements Hasher, HashComparator {
   private saltOrRounds: string | number
 
   constructor (saltOrRounds: string | number) {
