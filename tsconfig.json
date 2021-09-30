@@ -2,11 +2,38 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es2018",
+        "baseUrl": "./",
         "rootDir": "./src",
         "outDir": "build",
-        "types": ["node", "jest"],
+        "types": [
+            "node",
+            "jest"
+        ], 
         "moduleResolution": "node",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "paths": {
+            "@infra/*": [
+                "infrastructure/*"
+            ],
+            "@interface/*": [
+                "interface/*"
+            ],
+            "@app/*": [
+                "application/*"
+            ],
+            "@domain/*": [
+                "domain/*"
+            ]
+        },
+        "plugins": [
+            {
+                "transform": "typescript-transform-paths"
+            },
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
     },
     "include": [
         "src/**/*.ts",
