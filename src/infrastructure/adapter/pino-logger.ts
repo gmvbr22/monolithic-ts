@@ -1,5 +1,5 @@
 import Pino from 'pino'
-import { Logger } from '../../application'
+import { Logger } from '@app'
 
 export class PinoAdapter implements Logger {
   private pino: Pino.Logger

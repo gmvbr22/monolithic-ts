@@ -1,5 +1,5 @@
-import { Logger } from '../../application'
-import { PinoAdapter } from './pino-logger'
+import { Logger } from '@app'
+import { PinoAdapter } from '@infra/adapter/pino-logger'
 
 test('Adapter: PinoAdapter', async () => {
   const adapter: Logger = new PinoAdapter()

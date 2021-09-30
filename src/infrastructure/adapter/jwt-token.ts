@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { sign, verify } from 'jsonwebtoken'
-import { Token, TokenResult, TokenValidation } from '../../application'
+import { Token, TokenResult, TokenValidation } from '@app'
 
 export class JWTAdapter implements Token, TokenValidation {
   private secret: string

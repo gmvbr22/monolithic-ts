@@ -1,4 +1,4 @@
-import { BcryptAdapter } from './bcrypt'
+import { BcryptAdapter } from '@infra/adapter'
 
 test('Adapter: BcryptAdapter', async () => {
   const secret = new BcryptAdapter(10)

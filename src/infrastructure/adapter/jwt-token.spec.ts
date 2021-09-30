@@ -1,4 +1,4 @@
-import { JWTAdapter } from './jwt-token'
+import { JWTAdapter } from '@infra/adapter'
 
 test('Adapter: JWTAdapter', async () => {
   const jwt = new JWTAdapter('password', 10)
