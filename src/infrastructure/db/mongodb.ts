@@ -9,7 +9,7 @@ export class MongoConnection {
     this.url = url
   }
 
-  public async connect () {
+  public async connect () : Promise<void> {
     this.client = await MongoClient.connect(this.url)
     this.db = this.client.db()
   }
