@@ -12,17 +12,29 @@
         "moduleResolution": "node",
         "esModuleInterop": true,
         "paths": {
-            "@infra/*": [
-                "infrastructure/*"
+            "@infra": [
+                "src/infrastructure/index"
             ],
+             "@infra/*": [
+                "src/infrastructure/*"
+            ],
+            "@interface": [
+                "src/interface/index"
+            ], 
             "@interface/*": [
-                "interface/*"
+                "src/interface/*"
+            ], 
+            "@app": [
+                "src/application/index"
             ],
             "@app/*": [
-                "application/*"
+                "src/application/*"
+            ],
+            "@domain": [
+                "src/domain/index"
             ],
             "@domain/*": [
-                "domain/*"
+                "src/domain/*"
             ]
         },
         "plugins": [
