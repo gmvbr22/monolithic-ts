@@ -1,7 +1,7 @@
+import { User } from '@domain'
+import { MongoConnection } from '@infra/db'
+import { FindUserByEmail, Logger } from '@app'
 import { Collection, FindOptions } from 'mongodb'
-import { MongoConnection } from '../mongodb'
-import { User } from '../../../domain'
-import { FindUserByEmail, Logger } from '../../../application'
 
 export class UserRepository implements FindUserByEmail {
   private mongo: MongoConnection

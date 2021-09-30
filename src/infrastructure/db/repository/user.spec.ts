@@ -1,6 +1,5 @@
-import { PinoAdapter } from '../../adapter/pino-logger'
-import { MongoConnection } from '../mongodb'
-import { UserRepository } from './user'
+import { PinoAdapter } from '@infra/adapter'
+import { UserRepository, MongoConnection } from '@infra/db'
 
 describe('UserRepository', () => {
   let user: UserRepository
@@ -23,8 +22,11 @@ describe('UserRepository', () => {
     }
     await connection.db.collection('user').insertOne(newUser)
 
-    const invalidUser = await user.findUserByEmail('error@test.test')
-    expect(invalidUser).toBeNull()
+    const invalidUser1 = await user.findUserByEmail('error@test.test')
+    expect(invalidUser1).toBeNull()
+
+    const invalidUser2 = await user.findUserByEmail(null)
+    expect(invalidUser2).toBeNull()
 
     const validUser = await user.findUserByEmail('test@test.test')
     expect(validUser).not.toBeNull()
