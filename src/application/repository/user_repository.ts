@@ -2,5 +2,5 @@ import { User } from '../../domain'
 
 export interface FindUserByEmail {
 
-  findUserByEmail(email: string): User | null
+  findUserByEmail(email: string): Promise<User | null>
 }
