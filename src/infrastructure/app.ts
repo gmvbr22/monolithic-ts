@@ -1,5 +1,6 @@
 import { Config } from './config'
 import { BcryptAdapter, JWTAdapter } from './adapter'
+import { MongoConnection } from './db'
 
 export class Application {
   private config: Config
@@ -8,8 +9,11 @@ export class Application {
     this.config = new Config()
   }
 
-  public initialize () {
+  public async initialize () {
     const bcryptAdapter = new BcryptAdapter(this.config.passwordRounds)
     const jwtAdapter = new JWTAdapter(this.config.tokenSecret, this.config.tokenExpire)
+
+    const mongodb = new MongoConnection(this.config.mongoUrl)
+    await mongodb.connect()
   }
 }
