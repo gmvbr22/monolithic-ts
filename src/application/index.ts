@@ -1,1 +1,2 @@
-export * from './sevices/secret'
+export * from './protocols'
+export * from './repository'
