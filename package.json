@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/gmvbr/monolithic-ts#readme",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.1.0",
     "@types/bcrypt": "^5.0.0",
     "@types/jest": "^27.0.2",
     "@types/jsonwebtoken": "^8.5.5",
