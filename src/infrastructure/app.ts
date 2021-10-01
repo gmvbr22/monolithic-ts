@@ -1,6 +1,7 @@
 import { Config } from '@infra/config'
 import { MongoConnection, UserRepository } from '@infra/db'
 import { BcryptAdapter, JWTAdapter, PinoAdapter } from '@infra/adapter'
+import { AuthCase } from '@app'
 
 export class Application {
   private config: Config
@@ -19,5 +20,10 @@ export class Application {
     await mongodb.connect()
 
     const userRepository = new UserRepository(mongodb, logger, 'user')
+    const authCase = new AuthCase(
+      userRepository,
+      bcryptAdapter,
+      jwtAdapter
+    )
   }
 }
