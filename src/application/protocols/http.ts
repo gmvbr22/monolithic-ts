@@ -1,4 +1,4 @@
-export interface HTTPRequest<Body, Headers> {
+export interface HTTPRequest<Body = {}, Headers = {}> {
   body: Body,
   headers: Headers
 }
