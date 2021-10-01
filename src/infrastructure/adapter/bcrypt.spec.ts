@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { BcryptAdapter } from '@infra/adapter'
 
 test('Adapter: BcryptAdapter', async () => {

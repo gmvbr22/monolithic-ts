@@ -1,7 +1,9 @@
 import assert from 'assert'
 import { sign, verify } from 'jsonwebtoken'
 import { Token, TokenResult, TokenValidation } from '@app'
+import { injectable } from 'inversify'
 
+@injectable()
 export class JWTAdapter implements Token, TokenValidation {
   private secret: string
   private expire: number

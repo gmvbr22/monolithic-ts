@@ -8,3 +8,5 @@ export interface Logger {
   fatal: LogFn;
   trace: LogFn;
 }
+
+export const LoggerS = Symbol.for('Logger')

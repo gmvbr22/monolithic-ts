@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { JWTAdapter } from '@infra/adapter'
 
 test('Adapter: JWTAdapter', async () => {

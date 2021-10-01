@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { Logger } from '@app'
 import { PinoAdapter } from '@infra/adapter/pino-logger'
 

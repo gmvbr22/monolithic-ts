@@ -1,5 +1,7 @@
+import { injectable } from 'inversify'
 import { Db, MongoClient } from 'mongodb'
 
+@injectable()
 export class MongoConnection {
   public url: string
   public client: MongoClient
