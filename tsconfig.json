@@ -38,6 +38,9 @@
             ],
             "@domain/*": [
                 "src/domain/*"
+            ],
+            "@shared": [
+                "src/shared/index"
             ]
         },
         "plugins": [

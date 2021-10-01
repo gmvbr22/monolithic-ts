@@ -1,5 +1,5 @@
 import { HTTPError, HTTPReply } from '@app'
-import { Result } from 'src/shared'
+import { Result } from '@shared'
 
 export function handleError (result: Result<any, HTTPError>, reply: HTTPReply): boolean {
   if (result.isError) {

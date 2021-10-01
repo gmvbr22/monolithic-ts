@@ -1,4 +1,4 @@
-import { Result, ResultAsync } from '../../shared/result'
+import { Result, ResultAsync } from '@shared'
 import { FindUserByEmail, FindUserByEmailS } from '@app/repository'
 import { HashComparator, HashComparatorS, Token, TokenResult, TokenS, HTTPError } from '@app/protocols'
 import { inject, injectable } from 'inversify'
