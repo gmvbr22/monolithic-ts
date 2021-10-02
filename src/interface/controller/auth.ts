@@ -1,5 +1,5 @@
 import { injectable } from 'inversify'
-import { AuthCase, HTTPReply, HTTPRequest } from '@app'
+import { AuthCase, HttpReply, HttpRequest } from '@app'
 import { handleError } from '@interface/helper'
 
 @injectable()
@@ -11,12 +11,12 @@ export class AuthController {
   }
 
   public async login (
-    request: HTTPRequest<{
+    request: HttpRequest<{
       Body: {
         email: string, password: string
       }
     }>,
-    reply: HTTPReply
+    reply: HttpReply
   ) {
     const { email, password } = request.body
     const response = await this.authCase.login(email, password)
