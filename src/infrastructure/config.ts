@@ -10,6 +10,7 @@ export class Config {
 
   constructor () {
     const env = envSchema({
+      dotenv: true,
       schema: {
         type: 'object',
         properties: {
