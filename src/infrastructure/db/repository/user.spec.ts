@@ -1,4 +1,3 @@
-import 'reflect-metadata'
 import { PinoAdapter } from '@infra/adapter'
 import { UserRepository, MongoConnection } from '@infra/db'
 

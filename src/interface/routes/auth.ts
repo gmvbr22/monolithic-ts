@@ -1,9 +1,7 @@
-import { injectable } from 'inversify'
 import { HttpRouteList } from '@app'
 import { AuthController } from '@interface/controller'
 import { LoginSchema } from '@interface/schema'
 
-@injectable()
 export class AuthRoutes {
   private authController: AuthController
 

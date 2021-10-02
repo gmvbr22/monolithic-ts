@@ -1,8 +1,10 @@
 import { Config } from '@infra/config'
 import { MongoConnection, UserRepository } from '@infra/db'
 import { BcryptAdapter, JWTAdapter, PinoAdapter } from '@infra/adapter'
-import { AuthCase, FindUserByEmailS, HashComparatorS, HasherS, LoggerS, TokenS, TokenValidationS } from '@app'
-import { Container } from 'inversify'
+import { AuthCase } from '@app'
+import { AuthController } from '@interface'
+import { AuthRoutes } from '@interface/routes/auth'
+import { FastifyServer } from './adapter/fastify'
 
 export class Application {
   private config: Config
@@ -11,44 +13,23 @@ export class Application {
     this.config = new Config()
   }
 
-  public async initializeAdapters (container: Container) {
+  public async initialize () {
+    const logger = new PinoAdapter()
+
     const mongodb = new MongoConnection(this.config.mongoUrl)
     await mongodb.connect()
 
-    container.bind(MongoConnection).toConstantValue(mongodb)
+    const bcrypt = new BcryptAdapter(this.config.passwordRounds)
+    const jwt = new JWTAdapter(this.config.tokenSecret, this.config.tokenExpire)
 
-    container.bind(BcryptAdapter).toConstantValue(new BcryptAdapter(this.config.passwordRounds))
-    container.bind(HasherS).toService(BcryptAdapter)
-    container.bind(HashComparatorS).toService(BcryptAdapter)
+    const userRepository = new UserRepository(mongodb, logger, 'User')
+    const authUseCase = new AuthCase(jwt, userRepository, bcrypt)
+    const authController = new AuthController(authUseCase)
+    const authRouter = new AuthRoutes(authController)
 
-    container.bind(JWTAdapter).toConstantValue(new JWTAdapter(
-      this.config.tokenSecret, this.config.tokenExpire
-    ))
-    container.bind(TokenS).toService(JWTAdapter)
-    container.bind(TokenValidationS).toService(JWTAdapter)
+    const fastify = new FastifyServer()
+    fastify.registry(authRouter.initialize())
 
-    container.bind(LoggerS).to(PinoAdapter)
-  }
-
-  public async initializeRepository (container: Container) {
-    container.bind(UserRepository).toConstantValue(
-      new UserRepository(
-        container.get(MongoConnection),
-        container.get(LoggerS),
-        'user'
-      )
-    )
-    container.bind(FindUserByEmailS).toService(UserRepository)
-  }
-
-  public async initializeCases (container: Container) {
-    container.bind(AuthCase).toSelf()
-  }
-
-  public async initialize () {
-    const container = new Container()
-    await this.initializeAdapters(container)
-    await this.initializeRepository(container)
-    await this.initializeCases(container)
+    await fastify.listen(this.config.serverPort, this.config.serverHost)
   }
 }

@@ -2,9 +2,7 @@ import { User } from '@domain'
 import { MongoConnection } from '@infra/db'
 import { FindUserByEmail, Logger } from '@app'
 import { Collection, FindOptions } from 'mongodb'
-import { injectable } from 'inversify'
 
-@injectable()
 export class UserRepository implements FindUserByEmail {
   private mongo: MongoConnection
   private logger: Logger

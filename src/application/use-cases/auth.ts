@@ -1,18 +1,16 @@
 import { Result, ResultAsync } from '@shared'
-import { FindUserByEmail, FindUserByEmailS } from '@app/repository'
-import { HashComparator, HashComparatorS, Token, TokenResult, TokenS, HttpError } from '@app/protocols'
-import { inject, injectable } from 'inversify'
+import { FindUserByEmail } from '@app/repository'
+import { HashComparator, Token, TokenResult, HttpError } from '@app/protocols'
 
-@injectable()
 export class AuthCase {
   private user: FindUserByEmail
   private hasher: HashComparator
   private token: Token
 
   constructor (
-    @inject(TokenS) token: Token,
-    @inject(FindUserByEmailS) user: FindUserByEmail,
-    @inject(HashComparatorS) comparator: HashComparator
+    token: Token,
+    user: FindUserByEmail,
+    comparator: HashComparator
   ) {
     this.user = user
     this.hasher = comparator

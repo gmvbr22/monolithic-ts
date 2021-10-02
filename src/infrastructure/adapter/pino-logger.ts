@@ -1,8 +1,6 @@
 import Pino from 'pino'
 import { Logger } from '@app'
-import { injectable } from 'inversify'
 
-@injectable()
 export class PinoAdapter implements Logger {
   private pino: Pino.Logger
 

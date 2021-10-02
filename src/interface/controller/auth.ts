@@ -1,8 +1,6 @@
-import { injectable } from 'inversify'
 import { AuthCase, HttpReply, HttpRequest } from '@app'
 import { handleError } from '@interface/helper'
 
-@injectable()
 export class AuthController {
   private authCase: AuthCase
 

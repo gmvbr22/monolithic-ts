@@ -1,8 +1,6 @@
 import { HttpFramework, HttpRouteList } from '@app'
 import fastify, { FastifyInstance } from 'fastify'
-import { injectable } from 'inversify'
 
-@injectable()
 export class FastifyServer implements HttpFramework {
   private fastify: FastifyInstance
 

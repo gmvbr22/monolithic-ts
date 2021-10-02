@@ -7,13 +7,10 @@
         "outDir": "build",
         "types": [
             "node",
-            "jest",
-            "reflect-metadata"
+            "jest"
         ], 
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
         "paths": {
             "@infra": [
                 "src/infrastructure/index"

@@ -39,5 +39,3 @@ export interface HttpFramework {
 
   listen(port: number, host: string)
 }
-
-export const HttpFrameworkS = Symbol.for('HttpFramework')
