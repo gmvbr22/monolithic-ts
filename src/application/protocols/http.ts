@@ -23,7 +23,7 @@ export interface HttpError {
 }
 
 export interface HttpRouter {
-  path: string,
+  url: string,
   method: 'DELETE' | 'GET' | 'HEAD' | 'PATCH' | 'POST' | 'PUT' | 'OPTIONS'
   schema: {
     body?: any
@@ -32,3 +32,12 @@ export interface HttpRouter {
 }
 
 export type HttpRouteList = HttpRouter[]
+
+export interface HttpFramework {
+
+  registry(list: HttpRouteList)
+
+  listen(port: number, host: string)
+}
+
+export const HttpFrameworkS = Symbol.for('HttpFramework')
