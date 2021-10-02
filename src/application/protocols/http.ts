@@ -25,6 +25,9 @@ export interface HttpError {
 export interface HttpRouter {
   path: string,
   method: 'DELETE' | 'GET' | 'HEAD' | 'PATCH' | 'POST' | 'PUT' | 'OPTIONS'
+  schema: {
+    body?: any
+  }
   controller: (request: HttpRequest, reply: HttpReply)=> Promise<any>
 }
 
